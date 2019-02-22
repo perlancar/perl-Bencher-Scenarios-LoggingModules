@@ -1,3 +1,11 @@
+0.002   2019-02-22 (PERLANCAR)
+
+        - No functional changes.
+
+        - [dist] Forgot to use PWP:Bencher::Scenario to show sample benchmark
+          results in POD.
+
+
 0.001   2019-02-22 (PERLANCAR)
 
         - First release, spun off from Bencher-Scenarios-LogGer.
