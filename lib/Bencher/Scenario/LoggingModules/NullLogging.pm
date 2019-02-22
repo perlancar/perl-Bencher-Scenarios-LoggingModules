@@ -68,6 +68,16 @@ our $scenario = {
             name => 'Log::ger+LGP:OptAway-100k_log_trace',
             perl_cmdline_template => ['-MLog::ger::Plugin=OptAway', '-MLog::ger', '-e', 'for(1..100_000) { log_trace(q[]) }'],
         },
+        {
+            name => 'Log::ger-1mil_log_trace',
+            perl_cmdline_template => ['-MLog::ger', '-e', 'for(1..1_000_000) { log_trace(q[]) }'],
+            include_by_default => 0,
+        },
+        {
+            name => 'Log::ger+LGP:OptAway-1mil_log_trace',
+            perl_cmdline_template => ['-MLog::ger::Plugin=OptAway', '-MLog::ger', '-e', 'for(1..1_000_000) { log_trace(q[]) }'],
+            include_by_default => 0,
+        },
 
         {
             name => 'Log::Log4perl-easy-100k_trace' ,
@@ -93,3 +103,14 @@ our $scenario = {
 
 1;
 # ABSTRACT:
+
+=head1 BENCHMARK NOTES
+
+You might notice that L<Log::ger>+L<Log::ger::Plugin::OptAway> (LGP:OptAway) is
+slower than plain Log::ger at 100k trace. This is because the plugin loading and
+setup overhead eclipses the gain provided by the OptAway plugin. If you try the
+these not-included-by-default participants they will show the benefit of
+OptAway:
+
+ Log::ger-1mil_log_trace
+ Log::ger+LGP:OptAway-1mil_log_trace
