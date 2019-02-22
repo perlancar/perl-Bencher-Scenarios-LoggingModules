@@ -1,3 +1,10 @@
+0.003   2019-02-22 (PERLANCAR)
+
+	- Add notes about LGP:OptAway startup overhead and add these
+	  participants to show the benefit of LGP:OptAway:
+	  Log::ger-1mil_log_trace & Log::ger+LGP:OptAway-1mil_log_trace.
+
+
 0.002   2019-02-22 (PERLANCAR)
 
         - No functional changes.
