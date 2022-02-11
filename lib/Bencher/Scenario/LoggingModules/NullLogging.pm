@@ -24,6 +24,7 @@ our $scenario = {
         'Log::Log4perl::Tiny' => {},
         'Log::Mini' => {},
         'Mojo::Log' => {},
+        'XLog' => {},
     },
     participants => [
 
@@ -96,6 +97,11 @@ our $scenario = {
         {
             name => 'Mojo::Log-100k_debug' ,
             perl_cmdline_template => ['-MMojo::Log', '-e', '$log = Mojo::Log->new(level=>"warn"); for(1..100_000) { $log->debug("") }'],
+        },
+
+        {
+            name => 'XLog-100k_debug' ,
+            perl_cmdline_template => ['-MXLog', '-e', 'for(1..100_000) { XLog::debug("") }'],
         },
     ],
     precision => 6,
